@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+nav {
+    background-color: #171717;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+nav button {
+    background-color: black;
+    border: 2px solid white;
+    padding: 10px;
+    color: white;
+    height: 48px;
+    cursor: pointer;
+}
+
+
+nav a {
+    margin-left: 8px;
+    margin-right: 8px;
+    text-decoration: none;
+    color: white;
+}
