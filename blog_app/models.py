@@ -7,12 +7,12 @@ from datetime import datetime
 
 class Post(models.Model):
     title = models.CharField(max_length=240)
-    slug = models.SlugField()
+    slug = models.SlugField(blank=True)
     date = models.DateTimeField(default=datetime.now())
     content = models.TextField()
     views = models.IntegerField()
     
 
-    # def save(self, *args, **kwargs) :
-    #     self.slug  = slugify(self.title)
-    #     return super().save(*args, **kwargs)
+    def save(self, *args, **kwargs) :
+        self.slug  = slugify(self.title)
+        return super().save(*args, **kwargs)

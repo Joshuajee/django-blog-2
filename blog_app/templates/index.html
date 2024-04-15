@@ -16,20 +16,11 @@
 
     <div class="posts">
 
-        {% include "./includes/post-item.html" %}
+        {% for post in posts %}
 
-        {% include "./includes/post-item.html" %}
+            {% include "./includes/post-item.html" %}
 
-        {% include "./includes/post-item.html" %}
-
-        {% include "./includes/post-item.html" %}
-
-        {% include "./includes/post-item.html" %}
-
-        {% include "./includes/post-item.html" %}
-
-        {% include "./includes/post-item.html" %}
-
+        {% endfor %}
 
     </div>
 
