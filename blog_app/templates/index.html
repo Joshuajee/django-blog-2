@@ -2,4 +2,35 @@
 
 {% block title %} My Blog {% endblock %}
 
-{% block content %} This is my content {% endblock %}
+{% block content %} 
+
+    <div>
+
+        <a href="/"> Relevant </a>
+
+        <a href="/latest"> Latest </a>
+
+        <a href="/top"> Top </a>
+
+    </div>
+
+    <div class="posts">
+
+        {% include "./includes/post-item.html" %}
+
+        {% include "./includes/post-item.html" %}
+
+        {% include "./includes/post-item.html" %}
+
+        {% include "./includes/post-item.html" %}
+
+        {% include "./includes/post-item.html" %}
+
+        {% include "./includes/post-item.html" %}
+
+        {% include "./includes/post-item.html" %}
+
+
+    </div>
+
+{% endblock %}
