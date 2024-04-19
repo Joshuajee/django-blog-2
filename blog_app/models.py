@@ -6,7 +6,6 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 class User(AbstractUser):
-    location = models.CharField(max_length=100)
     profile_img = models.FileField(upload_to="profiles", blank=True)
 
 
