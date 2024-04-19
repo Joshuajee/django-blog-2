@@ -10,10 +10,24 @@ def index(req):
     })
 
 def latest(req):
-    return render(req, "index.html")
+    posts = Post.objects.all().order_by("-date")
+    return render(req, "index.html", {
+        'posts': posts
+    })
 
 def top(req):
-    return render(req, "index.html")
+    posts = Post.objects.all().order_by("-views")
+    return render(req, "index.html", {
+        "posts": posts
+    })
+    
+def post(req, slug):
+    
+    post = Post.objects.get(slug=slug)
+    
+    return render(req, "post.html", {
+        "post" : post
+    })
 
 def dummy(req):
     return render(req, "dummy.html")

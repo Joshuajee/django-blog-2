@@ -1,0 +1,33 @@
+{% extends "./base.html" %}
+
+{% block title %} {{post.title}} {% endblock %}
+
+{% block content %} 
+
+    <div class="post-item">
+
+        <div class="img-container">
+            <img src="" />
+        </div>
+
+        <div class="post-details">
+
+            <h2> Author name </h2>
+
+            <p> {{post.date}} </p>
+
+            <h2> <a href="/post/{{post.slug}}"> {{post.title}} </a>  </h2>
+
+        </div>
+
+
+    </div>
+
+    <div class="post-content">
+        
+        {{post.content}}
+
+    </div>
+
+
+{% endblock %}

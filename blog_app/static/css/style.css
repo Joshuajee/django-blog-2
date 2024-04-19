@@ -71,3 +71,11 @@ a {
     height: 50px;
     border-radius: 25px;
 }
+
+.post-content {
+    background-color: #171717;
+    border-radius: 24px;
+    color: white;
+    padding: 40px;
+    margin-top: 20px;
+}
