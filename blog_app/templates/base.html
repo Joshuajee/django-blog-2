@@ -23,9 +23,25 @@
 
             <div> 
 
-                <a href="/create"> <button> Create Account </button> </a>
 
-                <a href="/login"> <button> Login </button> </a>
+
+                {% if user.is_authenticated %}
+
+                    <a href="/profile"> <button> Profile </button> </a>
+
+                    <a href="/my-blogs"> <button> My Blogs </button> </a>
+
+                    <a href="/create-post"> <button> Create Post </button> </a>
+
+                    <a href="/logout"> <button> Logout </button> </a>
+
+                {% else %}
+
+                    <a href="/create"> <button> Create Account </button> </a>
+
+                    <a href="/login"> <button> Login </button> </a>
+
+                {% endif %}
 
             </div>
 

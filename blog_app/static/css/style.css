@@ -79,3 +79,37 @@ a {
     padding: 40px;
     margin-top: 20px;
 }
+
+
+.auth {
+    display: flex;
+    justify-content: center;  
+    margin-top: 40px;
+}
+
+.auth form {
+    width: 400px;
+    background-color: #171717;
+    padding: 40px 20px;
+    border: 1px solid white;
+    border-radius: 25px;
+}
+
+.auth h2 {
+    text-align: center;
+    color: white;
+}
+
+.auth input {
+    height: 48px;
+    width: 100%;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.auth button {
+    height: 48px;
+    width: 100%;
+    display: block;
+}

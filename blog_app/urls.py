@@ -1,10 +1,12 @@
 from django.urls import path
-from .views import index, latest, top, post, dummy
+from .views import index, latest, top, post, create_account, login_view, logout_view
 
 urlpatterns = [
     path("", index),
     path("latest", latest),
     path("top", top),
     path("post/<slug:slug>", post),
-    path("dummy/", dummy)
+    path("create", create_account),
+    path("login", login_view),
+    path("logout", logout_view)
 ]
