@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponseRedirect
 from .models import Post, User
 from django.contrib.auth import authenticate, login, logout
+from .forms import CreatePostForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -25,6 +27,10 @@ def top(req):
 def post(req, slug):
     
     post = Post.objects.get(slug=slug)
+    
+    post.views += 1
+    
+    post.save()
     
     return render(req, "post.html", {
         "post" : post
@@ -63,14 +69,16 @@ def login_view(req):
         
         try:
             user = authenticate(username=username, password=password)
-            print(user)
             if user == None:
                 return render(req, "login.html", {
                     'error': "Wrong Username or Password"
                 })
             else:
                 login(req, user)
-                return HttpResponseRedirect("/")
+                try:
+                    return HttpResponseRedirect(req.GET["next"])
+                except:
+                    return HttpResponseRedirect("/")
         except:
             pass
                 
@@ -79,3 +87,33 @@ def login_view(req):
 def logout_view(req):
     logout(req)
     return HttpResponseRedirect("/")
+
+
+@login_required(login_url="/login")
+def create_post(req):
+    
+    form = CreatePostForm()
+    
+    if req.method == "POST":
+        
+        form = CreatePostForm(req.POST)
+        
+        if form.is_valid():
+            title = form.cleaned_data['title']
+            content = form.cleaned_data['content']
+            
+            Post(user=req.user, title=title, content=content).save()
+            
+            return render(req, "create-post.html", {
+                "form": form,
+                "success": "Created Successfully"
+            })
+        else:
+            return render(req, "create-post.html", {
+                "form": form,
+                "error": "Invalid Input"
+            })
+    
+    return render(req, "create-post.html", {
+        "form": form
+    })

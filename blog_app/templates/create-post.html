@@ -1,0 +1,26 @@
+{% extends "./base.html" %}
+
+{% block title %} Create Post {% endblock %}
+
+{% block content %} 
+
+    <div class="auth create-post">
+    
+        <form method="post">
+
+            {% if success %}
+                <h3>{{success}}</h3>
+            {% elif error %}
+                <h3>{{error}}</h3>
+            {% endif %}
+
+            {% csrf_token %}
+
+            {{form}}
+
+            <button> Create Post </button>
+        </form>
+
+    </div>
+
+{% endblock %}

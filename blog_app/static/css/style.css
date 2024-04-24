@@ -81,7 +81,7 @@ a {
 }
 
 
-.auth {
+.auth  {
     display: flex;
     justify-content: center;  
     margin-top: 40px;
@@ -112,4 +112,19 @@ a {
     height: 48px;
     width: 100%;
     display: block;
+}
+
+.create-post {
+    color: white;
+}
+
+.create-post > form {
+    width: 600px;
+}
+
+.create-post textarea {
+    display: block;
+    width: 100%;
+    resize: none;
+    margin-bottom: 20px;
 }

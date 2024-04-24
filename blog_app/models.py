@@ -15,7 +15,7 @@ class Post(models.Model):
     slug = models.SlugField(blank=True)
     date = models.DateTimeField(default=datetime.now())
     content = models.TextField()
-    views = models.IntegerField()
+    views = models.IntegerField(default=0)
     
 
     def save(self, *args, **kwargs) :
