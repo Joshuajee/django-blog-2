@@ -1,0 +1,32 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block title  %} My Account {% endblock %}
+
+{% block content %} 
+
+    <div class="profile">
+
+        <div>
+            <img src="/{{ user.profile_img }}" width="200px" height="200px" style="border-radius: 100%; margin-top: 50px;" />
+        </div>
+
+        <form action="upload" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="profile-img" accept="image/*" />
+            <button> upload </button>
+        </form>
+
+        <h1 >  {{ user.first_name}} {{ user.last_name}} </h3>
+
+        <h1> {{user.email}} </h3>
+
+        <form style="margin-top: 50px;">
+            Create update password form
+        </form>
+
+    </div>
+
+
+{% endblock %}
+

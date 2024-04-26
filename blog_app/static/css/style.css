@@ -63,6 +63,7 @@ a {
     display: flex;
     gap: 10px;
     color: white;
+    padding: 20px;
 }
 
 
@@ -127,4 +128,17 @@ a {
     width: 100%;
     resize: none;
     margin-bottom: 20px;
+}
+
+
+.profile {
+    display: flex;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-img {
+    border-radius: 50%;
 }

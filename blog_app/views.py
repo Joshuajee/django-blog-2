@@ -117,3 +117,34 @@ def create_post(req):
     return render(req, "create-post.html", {
         "form": form
     })
+    
+    
+@login_required(login_url="/login")
+def profile(req):
+    return render(req, "profile.html")
+
+
+@login_required(login_url="/login")
+def upload_profile_img(req):
+    
+    if req.method == "POST":
+        user = User.objects.get(id=req.user.id)
+        print(req.FILES['profile-img'])
+        user.profile_img = req.FILES['profile-img']
+        user.save()
+    
+    return render(req, "profile.html", {
+        
+    })
+    
+
+@login_required(login_url="/login")
+def my_blogs(req):
+    
+    posts = Post.objects.filter(user=req.user)
+    
+    return render(req, "index.html", {
+        "posts": posts
+    })
+
+    

@@ -126,3 +126,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "blog_app.User"
 
+MEDIA_ROOT = BASE_DIR / "profiles"
+
+MEDIA_URL = ""
+
+#static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
